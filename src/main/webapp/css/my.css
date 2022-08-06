@@ -14,7 +14,7 @@ body {
     color: #272418d6;
 }
 
-.panel {
+.header {
     padding-top: 30px;
     text-align: center;
     font-size: 38px;
@@ -43,12 +43,11 @@ body {
     margin: 4px 240px 4px 0;
     font-size: 28px;
     text-align: center;
-    color: #272418d6;
     width: 100%;
     color: #ffffff;
 }
 
-.accounts__select {
+.accounts__view {
     margin-left: 20px;
     min-width: 240px;
     display: flex;
@@ -56,7 +55,7 @@ body {
     align-items: center;
 }
 
-.select_label {
+.view_label {
     margin-right: 10px;
     font-size: 18px;
     text-align: right;
@@ -153,19 +152,6 @@ body {
     display: none;
 }
 
-.page_label:active {
-    background-color: rgba(31, 132, 255, 0.55);
-}
-
-.page_label:hover {
-    background-color: rgba(31, 132, 255, 0.9);
-}
-
-input:checked+label:hover {
-    background-color: rgba(183, 0, 0, 0.836);
-}
-
-
 .page_label {
     margin-right: 2px;
     color: #fff;
@@ -180,9 +166,20 @@ input:checked+label:hover {
     transition: 250ms ease-in-out;
 }
 
+.page_label:active {
+    background-color: rgba(31, 132, 255, 0.55);
+}
 
-input:checked+label {
+.page_label:hover {
+    background-color: rgba(31, 132, 255, 0.9);
+}
+
+input.page_button:checked+label {
     background-color: rgba(255, 0, 0, 0.71);
+}
+
+input.page_button:checked+label:hover {
+    background-color: rgba(183, 0, 0, 0.836);
 }
 
 .image {
@@ -198,7 +195,6 @@ input:checked+label {
     filter: opacity(80%);
     animation: shake 0.5s;
 }
-
 
 .input {
     padding: 5px 0px;
@@ -233,34 +229,197 @@ input:checked+label {
     border: none;
 }
 
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .create_user {
     margin: 50px auto;
     padding: 20px;
-    max-width: 900px;
+    max-width: 680px;
     box-shadow: 0px 5px 20px rgb(53 110 173 / 33%);
     border-radius: 10px;
 }
 
-#create_user_form {
-    display: flex;
-    justify-content: space-around;
+.create_user>h2 {
+    text-align: center;
+    font-size: 26px;
 }
 
-.card {
-    border: 1px solid #000;
-    width: 200px;
+#create_user_form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#create_user_form .form_selector:last-of-type {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.form_selector {
+    border: 1px solid rgba(31, 132, 255, 1);
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: inset 2px 3px 10px 0px rgb(0 0 0 / 52%);
+}
+
+.form_selector_header {
+    line-height: 30px;
+    background-color: rgba(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form_selector>input {
+    display: none;
+}
+
+.form_credentials {
+    padding: 16px 16px 10px;
+    width: 384px;
+    background: linear-gradient(352deg, rgb(31 132 255 / 81%) 81%, rgba(255, 255, 255, 0.75) 109%);
+    box-shadow: 6px 0px 10px 1px rgb(0 0 0 / 52%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 .form_info {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
 }
 
-.form_text {
-    font-size: 14px;
-    color: #563d70;
+.form_info_level {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 170px;
 }
 
+.form_info_birthday {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form_text_title {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.form_text {
+    margin-top: 6px;
+    padding-left: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+    line-height: 30px;
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+}
+
+.form_info_banned {
+    margin-top: 10px;
+    margin-left: 60px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.form_label {
+    color: grey;
+    text-align: center;
+    line-height: 30px;
+}
+
+.form_label:hover {
+    background-color: rgba(31, 132, 255, 0.15);
+}
+
+input:checked+.form_label {
+    color: white;
+    background: rgba(31, 132, 255, 1);
+    box-shadow: inset 3px 0px 6px 1px rgb(0 0 0 / 52%);
+}
+
+input:checked+.form_label:hover {
+    background: rgba(21, 114, 227, 1);
+}
+
+.banned_container {
+    padding: 1px;
+    border: 2px double #06132470;
+    width: 80px;
+    border-radius: 5px;
+    line-height: 30px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(144, 139, 139, 1);
+    box-shadow: inset 1px 1px 6px 2px rgb(0 0 0 / 39%);
+}
+
+.banned_container>label {
+    width: 100%;
+    border-radius: 2px;
+    text-align: center;
+    color: white;
+}
+
+.banned_container>label:hover {
+    background: rgba(76, 78, 86, 0.18);
+}
+
+.form_info_banned>div>input {
+    display: none;
+}
+
+#banned_true:checked+label {
+    box-shadow: 4px 4px 3px 2px rgb(0 0 0 / 9%);
+    background: linear-gradient(334deg, rgba(255, 0, 0, 0.75) 53%, rgba(255, 255, 255, 0.75) 129%);
+    border-radius: 5px;
+}
+
+#banned_false:checked+label {
+    box-shadow: 4px 4px 3px 2px rgb(0 0 0 / 9%);
+    background: linear-gradient(334deg, rgba(0, 0, 0, 0.57) 53%, rgba(255, 255, 255, 0.75) 129%);
+    border-radius: 5px;
+}
+
+.submit {
+    margin: 28px 0px 10px;
+    width: 100%;
+    line-height: 40px;
+    border-radius: 5px;
+    border: none
+}
+
+.submit_text {
+    background: linear-gradient(358deg, rgb(61 59 59) 55%, white 147%);
+    border: 1px solid rgb(21 86 165 / 63%);
+    box-shadow: 4px 4px 3px 1px rgb(0 0 0 / 9%);
+    color: white;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: ease-in-out 0.1s;
+}
+
+.submit_text:hover {
+    background: linear-gradient(358deg, rgb(65 65 65) 55%, white 147%);
+    font-size: 16px;
+}
+
+.submit_text:active {
+    background: linear-gradient(358deg, rgb(61 59 59) 55%, white 147%);
+}
 
 @keyframes shake {
 

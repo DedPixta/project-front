@@ -10,12 +10,12 @@
 </head>
 
 <body onload="init()">
-    <h1 class="panel">RPG admin panel</h1>
+    <h1 class="header">RPG admin panel</h1>
     <div class="accounts">
         <div class="accounts_header">
-            <div class="accounts__select">
-                <label for="select_count" class="select_label">Accounts per page</label>
-                <select id="accounts_per_page" name="select_count">
+            <div class="accounts__view">
+                <label for="view_count" class="view_label">Accounts per page</label>
+                <select id="accounts_per_page" name="view_count">
                     <option value="3" selected>3</option>
                     <option value="5">5</option>
                     <option value="10">10</option>
@@ -61,109 +61,89 @@
         </fieldset>
     </div>
     <div class="create_user">
-        <h2 class="text_header">Create new account</h2>
+        <h2>Create new account</h2>
         <form id="create_user_form" action="">
-            <div class="card">
-                <p class="text">Choose profession</p>
-                <div>
-                    <input type="radio" id="prof_warrior" class="prof_button" name="profession" value="WARRIOR" checked>
-                    <label class="form_label" for="prof_warrior">Warrior</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_rogue" class="prof_button" name="profession" value="ROGUE">
-                    <label class="form_label" for="prof_rogue">Rogue</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_sorcerer" class="prof_button" name="profession" value="SORCERER">
-                    <label class="form_label" for="prof_sorcerer">Sorcerer</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_cleric" class="prof_button" name="profession" value="CLERIC">
-                    <label class="form_label" for="prof_cleric">Cleric</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_paladin" class="prof_button" name="profession" value="PALADIN">
-                    <label class="form_label" for="prof_paladin">Paladin</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_nazgul" class="prof_button" name="profession" value="NAZGUL">
-                    <label class="form_label" for="prof_nazgul">Nazgul</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_warlock" class="prof_button" name="profession" value="WARLOCK">
-                    <label class="form_label" for="prof_warlock">Warlock</label>
-                </div>
-                <div>
-                    <input type="radio" id="prof_druid" class="prof_button" name="profession" value="DRUID">
-                    <label class="form_label" for="prof_druid">Druid</label>
-                </div>
-            </div>
-            <div class="card">
-                <p class="text">Choose race</p>
-                <div>
-                    <input type="radio" id="race_human" class="race_button" name="race" value="HUMAN" checked>
-                    <label class="form_label" for="race_human">Human</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_dwarf" class="race_button" name="race" value="DWARF">
-                    <label class="form_label" for="race_dwarf">Dwarf</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_elf" class="race_button" name="race" value="ELF">
-                    <label class="form_label" for="race_elf">Elf</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_giant" class="race_button" name="race" value="GIANT">
-                    <label class="form_label" for="race_giant">Giant</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_orc" class="race_button" name="race" value="ORC">
-                    <label class="form_label" for="race_orc">Orc</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_troll" class="race_button" name="race" value="TROLL">
-                    <label class="form_label" for="race_troll">Troll</label>
-                </div>
-                <div>
-                    <input type="radio" id="race_hobbit" class="race_button" name="race" value="HOBBIT">
-                    <label class="form_label" for="race_hobbit">Hobbit</label>
-                </div>
-            </div>
-            <div class="card container">
-                <div class="form_info">
-                    <label for="form_name" class="text">Name</label>
-                    <input id="form_name" class="form_text" type="text" minlength="1" maxlength="12"
-                        placeholder="enter name" required>
-                </div>
-                <div class="form_info">
-                    <label for="form_title">Title</label>
-                    <input id="form_title" type="text" minlength="1" maxlength="30" placeholder="enter title" required>
-                </div>
-                <div class="form_info">
-                    <label for="form_level">Level</label>
-                    <input id="form_level" type="number" max="100" min="1" placeholder="1 - 100" required>
-                </div>
-                <div class="form_info">
-                    <label for="form_birthday">Birthday</label>
-                    <input id="form_birthday" type="date" min="1970-01-01" required>
-                </div>
-                <div class="form_info">
-                    <div>
-                        <input type="radio" id="banned_true" class="banned_button" name="banned" value="true">
-                        <label for="banned_true">Yes</label>
+            <div class="form_credentials">
+                <div class="container">
+                    <div class="form_info">
+                        <label for="form_name" class="form_text_title">Name</label>
+                        <input id="form_name" class="form_text" type="text" minlength="1" maxlength="12"
+                            placeholder="Enter name" required>
                     </div>
-                    <div>
-                        <input type="radio" id="banned_false" class="banned_button" name="banned" value="false" checked>
-                        <label for="banned_false">No</label>
+                    <div class="form_info_birthday">
+                        <label for="form_birthday" class="form_text_title">Birthday</label>
+                        <input id="form_birthday" class="form_text" placeholder="Enter birthday"
+                            onfocus="(this.type='date')" min="1970-01-01" required>
                     </div>
                 </div>
-                <button type="submit" onsubmit="submitClick()">
-                    <p class="text">Click</p>
+                <div class="form_info">
+                    <label for="form_title" class="form_text_title">Title</label>
+                    <input id="form_title" class="form_text" type="text" minlength="1" maxlength="30"
+                        placeholder="Enter title" required>
+                </div>
+                <div class="container">
+                    <div class="form_info_level">
+                        <label for="form_level" class="form_text_title">Level</label>
+                        <input id="form_level" class="form_text" type="number" max="100" min="1" placeholder="1 - 100"
+                            required>
+                    </div>
+                    <div class="form_info_banned">
+                        <p class="form_text_title">Banned</p>
+                        <div class="banned_container">
+                            <input type="radio" id="banned_true" class="banned_button" name="banned" value="true">
+                            <label for="banned_true">Yes</label>
+                            <input type="radio" id="banned_false" class="banned_button" name="banned" value="false"
+                                checked>
+                            <label for="banned_false">No</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="submit" onsubmit="submitClick()">
+                    <p class="submit_text">Register</p>
                 </button>
+            </div>
+            <div class="form_selector">
+                <div class="form_selector_header">
+                    <p class="form_text_title">Profession</p>
+                </div>
+                <input type="radio" id="prof_warrior" class="prof_button" name="profession" value="WARRIOR" checked>
+                <label class="form_label" for="prof_warrior">Warrior</label>
+                <input type="radio" id="prof_rogue" class="prof_button" name="profession" value="ROGUE">
+                <label class="form_label" for="prof_rogue">Rogue</label>
+                <input type="radio" id="prof_sorcerer" class="prof_button" name="profession" value="SORCERER">
+                <label class="form_label" for="prof_sorcerer">Sorcerer</label>
+                <input type="radio" id="prof_cleric" class="prof_button" name="profession" value="CLERIC">
+                <label class="form_label" for="prof_cleric">Cleric</label>
+                <input type="radio" id="prof_paladin" class="prof_button" name="profession" value="PALADIN">
+                <label class="form_label" for="prof_paladin">Paladin</label>
+                <input type="radio" id="prof_nazgul" class="prof_button" name="profession" value="NAZGUL">
+                <label class="form_label" for="prof_nazgul">Nazgul</label>
+                <input type="radio" id="prof_warlock" class="prof_button" name="profession" value="WARLOCK">
+                <label class="form_label" for="prof_warlock">Warlock</label>
+                <input type="radio" id="prof_druid" class="prof_button" name="profession" value="DRUID">
+                <label class="form_label" for="prof_druid">Druid</label>
+            </div>
+            <div class="form_selector">
+                <div class="form_selector_header">
+                    <p class="form_text_title">Race</p>
+                </div>
+                <input type="radio" id="race_human" class="race_button" name="race" value="HUMAN" checked>
+                <label class="form_label" for="race_human">Human</label>
+                <input type="radio" id="race_dwarf" class="race_button" name="race" value="DWARF">
+                <label class="form_label" for="race_dwarf">Dwarf</label>
+                <input type="radio" id="race_elf" class="race_button" name="race" value="ELF">
+                <label class="form_label" for="race_elf">Elf</label>
+                <input type="radio" id="race_giant" class="race_button" name="race" value="GIANT">
+                <label class="form_label" for="race_giant">Giant</label>
+                <input type="radio" id="race_orc" class="race_button" name="race" value="ORC">
+                <label class="form_label" for="race_orc">Orc</label>
+                <input type="radio" id="race_troll" class="race_button" name="race" value="TROLL">
+                <label class="form_label" for="race_troll">Troll</label>
+                <input type="radio" id="race_hobbit" class="race_button" name="race" value="HOBBIT">
+                <label class="form_label" for="race_hobbit">Hobbit</label>
             </div>
         </form>
     </div>
-
 
     <script>
         // Constants
@@ -259,77 +239,12 @@
             }
         }
 
-        function submitClick() {
-            const formData = {
-                name: document.getElementById('form_name').value,
-                title: document.getElementById('form_title').value,
-                race: document.querySelector('.race_button:checked').value,
-                profession: document.querySelector('.prof_button:checked').value,
-                level: document.getElementById('form_level').valueAsNumber,
-                birthday: document.getElementById('form_birthday').valueAsNumber,
-                banned: document.querySelector('.banned_button:checked').value
-            }
-
-            console.log(formData)
-            console.log(JSON.stringify(formData))
-
-            $.ajax({
-                type: 'POST',
-                url: '/rest/players',
-                contentType: "application/json",
-                dataType: "json",
-                data: JSON.stringify(formData),
-                success: refreshTable
-            })
-        }
-
-        function spellCheckCreateForm() {
-            structure.userForm.name.oninput = checkForm
-            structure.userForm.title.oninput = checkForm
-            structure.userForm.birthday.oninput = checkForm
-            structure.userForm.level.oninput = checkForm
-        }
-
-        function checkForm() {
-            const checkingFields = ['name', 'title', 'birthday', 'level']
-
-            checkingFields.forEach(field => checkField(field))
-        }
-
-        function checkField(fieldName) {
-            const field = structure.userForm[fieldName]
-            let currentValue
-            if ('birthday' === fieldName) {
-                const todayDate = Date.now()
-                currentValue = field.valueAsNumber
-
-                if (isNaN(currentValue)) { return }
-
-                if (currentValue <= todayDate) {
-                    field.setCustomValidity("")
-                } else {
-                    field.setCustomValidity(constraints[fieldName].info)
-                    return
-                }
-            } else {
-                const constraint = new RegExp(constraints[fieldName].regex, 'u')
-                currentValue = field.value
-                if (constraint.test(currentValue)) {
-                    field.setCustomValidity("")
-                } else {
-                    field.setCustomValidity(constraints[fieldName].info)
-                    return
-                }
-            }
-        }
-
         function init() {
             getThen(request.players, addToTable)
 
             getThen(request.numberOfAccounts, addToTablePages)
 
             spellCheckCreateForm()
-
 
             structure.userForm.form.addEventListener('submit', function (e) {
 
@@ -391,6 +306,72 @@
             })
 
             updatePlayerThen(request.update(playerId), options, refreshTable)
+        }
+
+        function submitClick() {
+            const formData = {
+                name: document.getElementById('form_name').value,
+                title: document.getElementById('form_title').value,
+                race: document.querySelector('.race_button:checked').value,
+                profession: document.querySelector('.prof_button:checked').value,
+                level: document.getElementById('form_level').valueAsNumber,
+                birthday: document.getElementById('form_birthday').valueAsNumber,
+                banned: document.querySelector('.banned_button:checked').value
+            }
+
+            console.log(formData)
+            console.log(JSON.stringify(formData))
+
+            $.ajax({
+                type: 'POST',
+                url: '/rest/players',
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify(formData),
+                success: refreshTable
+            })
+
+            structure.userForm.form.reset()
+        }
+
+        function spellCheckCreateForm() {
+            structure.userForm.name.oninput = checkForm
+            structure.userForm.title.oninput = checkForm
+            structure.userForm.birthday.oninput = checkForm
+            structure.userForm.level.oninput = checkForm
+        }
+
+        function checkForm() {
+            const checkingFields = ['name', 'title', 'birthday', 'level']
+
+            checkingFields.forEach(field => checkField(field))
+        }
+
+        function checkField(fieldName) {
+            const field = structure.userForm[fieldName]
+            let currentValue
+            if ('birthday' === fieldName) {
+                const todayDate = Date.now()
+                currentValue = field.valueAsNumber
+
+                if (isNaN(currentValue)) { return }
+
+                if (currentValue <= todayDate) {
+                    field.setCustomValidity("")
+                } else {
+                    field.setCustomValidity(constraints[fieldName].info)
+                    return
+                }
+            } else {
+                const constraint = new RegExp(constraints[fieldName].regex, 'u')
+                currentValue = field.value
+                if (constraint.test(currentValue)) {
+                    field.setCustomValidity("")
+                } else {
+                    field.setCustomValidity(constraints[fieldName].info)
+                    return
+                }
+            }
         }
 
         function editClick(clickedButton) {
@@ -561,7 +542,6 @@
 
             addToTablePages(numberOfAccounts, pageSize)
 
-
             const checkedButton = document.getElementById(`page_${page - 1}`)
             checkedButton.checked = true
         }
@@ -637,7 +617,6 @@
                 success: answer => action(answer)
             })
         }
-
     </script>
 </body>
 
